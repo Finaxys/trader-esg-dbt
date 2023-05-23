@@ -1,13 +1,13 @@
-
-select 
-    CONTENT:type::string as type,
-    CONTENT:timestamp::int as timestamp,
-    CONTENT:quantity::int as quantity,
-    CONTENT:price::int as price,
-    CONTENT:extId2::string as extId2,
-    CONTENT:extId1::string as extId1,
-    CONTENT:obName::string as ISIN,
-    CONTENT:direction::string as direction,
-    CONTENT:bestBidPrice::int as bestBidPrice,
-    CONTENT:bestAskPrice::int as bestAskPrice
-  from TRADE_BRONZE, lateral flatten( input => CONTENT) where type='Price'
+SELECT
+$1:timestamp::varchar::TIMESTAMP TIMESTAMP,
+$1:obName::STRING OBNAME,
+$1:price::NUMBER PRICE,
+$1:quantity::NUMBER QUANTITY,
+$1:extId1::STRING EXTID1,
+$1:extId2::STRING EXTID2,
+$1:bestAskPrice::NUMBER BESTASKPRICE,
+$1:bestBidPrice::NUMBER BESTBIDPRICE
+FROM
+TRADE_BRONZE
+WHERE
+$1:type = 'Price'

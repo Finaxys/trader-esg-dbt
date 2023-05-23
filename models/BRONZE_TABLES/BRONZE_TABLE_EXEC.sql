@@ -1,11 +1,14 @@
-select 
-    CONTENT:type::string as type,
-    CONTENT:validity::string as validity,
-    CONTENT:timestamp::string as timestamp,
-    CONTENT:sender::string as sender,
-    CONTENT:quantity::string as quantity,
-    CONTENT:price::string as price,
-    CONTENT:orderType::string as orderType,
-    CONTENT:obName::string as ISIN,
-    CONTENT:extId::string as extId
-  from TRADE_BRONZE, lateral flatten( input => CONTENT) where type='Exec'
+SELECT
+$1:timestamp::varchar::TIMESTAMP TIMESTAMP,
+$1:obName::STRING OBNAME,
+$1:orderType::STRING ORDERTYPE,
+$1:sender::STRING SENDER,
+$1:extId::STRING EXTID,
+$1:quantity::NUMBER QUANTITY,
+$1:direction::STRING DIRECTION,
+$1:price::NUMBER PRICE,
+$1:validity::NUMBER VALIDITY
+FROM
+TRADE_BRONZE
+WHERE
+$1:type = 'Exec'

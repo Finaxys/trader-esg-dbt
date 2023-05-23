@@ -1,10 +1,12 @@
 
-select 
-    CONTENT:type::string as type,
-    CONTENT:name::string as name,
-    CONTENT:cash::string as cash,
-    CONTENT:invests::string as invests,
-    CONTENT:lastFixedPrice::string as lastFixedPrice,
-    CONTENT:obName::string as ISIN,
-    CONTENT:timestamp::string as timestamp
-  from TRADE_BRONZE, lateral flatten( input => CONTENT) where type='Agent'
+SELECT
+$1:timestamp::varchar::TIMESTAMP TIMESTAMP,
+$1:name::STRING NAME,
+$1:cash::NUMBER CASH,
+$1:obName::STRING OBNAME,
+$1:invests::NUMBER INVESTS,
+$1:lastFixedPrice::NUMBER LASTFIXESPRICE
+FROM
+TRADE_BRONZE
+WHERE
+$1:type = 'Agent'

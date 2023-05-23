@@ -1,0 +1,21 @@
+
+version: 2
+
+models:
+  - name: BRONZE_TABLE_AGENT
+    description: "A starter dbt model"
+    columns:
+      - name: id
+        description: "The primary key for this table"
+        tests:
+          - unique
+          - not_null
+
+  - name: BRONZE_TABLE_PRICE
+    description: "A starter dbt model"
+    columns:
+      - name: id
+        description: "The primary key for this table"
+        tests:
+          - unique
+          - not_null

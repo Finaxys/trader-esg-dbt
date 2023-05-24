@@ -1,0 +1,14 @@
+DBT_SNOWFLAKE:
+atom_snowflake_python_dev:
+  outputs:
+    dev:
+      account: au42629.eu-central-1
+      database:
+      password:
+      role: DATADAY
+      schema: PUBLIC
+      threads: 1
+      type: snowflake
+      user:
+      warehouse: DATADAY_WH
+  target: dev

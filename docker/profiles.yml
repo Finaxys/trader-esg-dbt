@@ -1,5 +1,4 @@
-DBT_SNOWFLAKE:
-atom_snowflake_python_dev:
+ESG_TRADE:
   outputs:
     dev:
       account: au42629.eu-central-1

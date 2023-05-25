@@ -2,9 +2,15 @@
 
 def model(dbt, session): 
     
+<<<<<<< HEAD:models/SILVER_TABLES/SILVER_PRICE_ANALYTICS.py
     CLASSIFICATION_df = dbt.ref("BRONZE_TABLE_CLASSIFICATION")
     
     PRICE_df = dbt.ref("BRONZE_TABLE_PRICE")
+=======
+    ESG_df = session.table('BRONZE_TABLE_ESG')
+    
+    PRICE_df = session.table('BRONZE_TABLE_PRICE')
+>>>>>>> a3e9e440dc8c6ccf7ba59d263199373cf3a4c616:models/PYTHON_MODEL.py
        #Lambda function to cumpute volume
     f = lambda x : x['PRICE'] * x['QUANTITY']
     PRICE_df = PRICE_df.to_pandas()

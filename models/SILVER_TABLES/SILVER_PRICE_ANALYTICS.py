@@ -11,7 +11,7 @@ def model(dbt, session):
 
     #Lambda function to cumpute volume
     #TODO
-    f = lambda x : x
+    f = lambda x : 1
 
     #use apply fucntion to parse the df
     price_df['VOLUME'] = price_df.apply(f, axis=1)

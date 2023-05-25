@@ -1,12 +1,10 @@
-import snowflake.snowpark as snowpark
-
 
 
 def model(dbt, session): 
     
-    ESG_df = session.table('TRADE_DB.PUBLIC.BRONZE_TABLE_ESG')
+    CLASSIFICATION_df = dbt.ref("BRONZE_TABLE_CLASSIFICATION")
     
-    PRICE_df = session.table('TRADE_DB.PUBLIC.BRONZE_TABLE_PRICE')
+    PRICE_df = dbt.ref("BRONZE_TABLE_PRICE")
        #Lambda function to cumpute volume
     f = lambda x : x['PRICE'] * x['QUANTITY']
     PRICE_df = PRICE_df.to_pandas()
@@ -19,6 +17,6 @@ def model(dbt, session):
     #convert the pandas df to snowpark df
     PRICE_df = session.create_dataframe(PRICE_df)
     #join the two dfs 'ESG_df' and 'PRICE_df'
-    dataframe = ESG_df.join(PRICE_df, ESG_df['ISIN']==PRICE_df['OBNAME'])
+    dataframe = CLASSIFICATION_df.join(PRICE_df, CLASSIFICATION_df['ISIN']==PRICE_df['OBNAME'])
 
     return dataframe

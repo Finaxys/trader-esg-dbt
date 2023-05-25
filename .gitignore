@@ -1,6 +1,4 @@
-/.idea/
-*.log
-/log/
-/target/
+target/*
+logs/*
 .user.yml
-logs/dbt.log.legacy
+profiles.yml

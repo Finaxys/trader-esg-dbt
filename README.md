@@ -47,7 +47,7 @@ ESG_TRADE:
 
 ## Exercice 1 - DBT Model
 
-Giving the following class diagram, construct models representing *BRONZE_TABLE_ORDER* and *BRONZE_TABLE_PRICE*. You can take as an example the *BRONZE_TABLE_AGENT* and *BRONZE_TABLE_ORDER* models
+Giving the following class diagram, construct models representing *BRONZE_TABLE_EXEC*. You can take as an example the *BRONZE_TABLE_AGENT* and *BRONZE_TABLE_ORDER* models
 
 <img src="resources/esg_trader_class.drawio.svg">
 
@@ -65,6 +65,6 @@ dbt run --select BRONZE_TABLE_AGENT
 
 ## Exercice 2 - DBT Python
 
-Modify the PYTHON_MODEL.py to add a new column representing the volume giving quantity and price
+Modify the SILVER_PRICE_ANALYTICS.py to add a new column representing the volume giving quantity and price
 
 Join ESG, E, S and G rating from BRONZE_TABLE_ESG with the BRONZE_TABLE_PRICE

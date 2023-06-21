@@ -1,0 +1,6 @@
+/.idea/
+*.log
+/log/
+/target/
+.user.yml
+logs/dbt.log.legacy

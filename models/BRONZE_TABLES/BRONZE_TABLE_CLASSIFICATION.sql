@@ -1,7 +1,7 @@
 SELECT 
     iu.INSTRUMENT_FULL_NAME as name, 
     iu.isin, iu.lei, 
-    sector, sector_longname, subsector, subsector_longname, industry, industry_longname, 
+    country, sector, sector_longname, subsector, subsector_longname, industry, industry_longname,
     ESG, E, S, G
 FROM 
     SUSTAINABLE_FINANCE.PUBLIC.INVESTMENT_UNIVERSE iu

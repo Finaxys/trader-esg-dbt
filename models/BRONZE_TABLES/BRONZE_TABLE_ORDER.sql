@@ -9,6 +9,6 @@ SELECT
     $1:price::NUMBER PRICE,
     $1:validity::NUMBER VALIDITY
 FROM
-    TRADE_RAW
+    {{ source('TRADE_DB', 'RAW') }}
 WHERE
     $1:type = 'Order'

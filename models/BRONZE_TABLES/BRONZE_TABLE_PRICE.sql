@@ -8,6 +8,6 @@ SELECT
     $1:bestAskPrice::NUMBER BESTASKPRICE,
     $1:bestBidPrice::NUMBER BESTBIDPRICE
 FROM
-    TRADE_RAW
+    {{ source('TRADE_DB', 'RAW') }}
 WHERE
     $1:type = 'Price'

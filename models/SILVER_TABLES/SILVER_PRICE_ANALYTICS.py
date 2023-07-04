@@ -10,8 +10,7 @@ def model(dbt, session):
     price_df = price_df.to_pandas()
 
     #Lambda function to cumpute volume
-    #TODO
-    f = lambda x : 1
+    f = lambda x : x['PRICE'] * x['QUANTITY']
 
     #use apply fucntion to parse the df
     price_df['VOLUME'] = price_df.apply(f, axis=1)

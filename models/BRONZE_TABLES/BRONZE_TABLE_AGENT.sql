@@ -6,6 +6,6 @@ SELECT
     $1:invests::NUMBER INVESTS,
     $1:lastFixedPrice::NUMBER LASTFIXESPRICE
 FROM
-    TRADE_RAW
+    {{ source('TRADE_DB', 'RAW') }}
 WHERE
     $1:type = 'Agent'

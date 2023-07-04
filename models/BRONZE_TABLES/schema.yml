@@ -18,3 +18,10 @@ models:
 
   - name: BRONZE_TABLE_ESG
     description: "A starter dbt model"
+
+sources:
+  - name: TRADE_DB
+    database: TRADE_DB
+    schema: PUBLIC
+    tables:
+      - name: RAW

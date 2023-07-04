@@ -9,6 +9,6 @@ SELECT
     $1:highestPriceOfDay::NUMBER HIGHESTPRICEOFDAY,
     $1:lowestPriceOfDay::NUMBER LOWESTPRICEOFDAY
 FROM
-    TRADE_RAW
+    {{ source('TRADE_DB', 'RAW') }}
 WHERE
     $1:type = 'Day'

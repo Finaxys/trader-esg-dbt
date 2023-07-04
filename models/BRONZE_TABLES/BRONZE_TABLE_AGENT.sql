@@ -4,7 +4,7 @@ SELECT
     $1:cash::NUMBER CASH,
     $1:obName::STRING OBNAME,
     $1:invests::NUMBER INVESTS,
-    $1:lastFixedPrice::NUMBER LASTFIXESPRICE
+    $1:lastFixedPrice::NUMBER LASTFIXEDPRICE
 FROM
     {{ source('TRADE_DB', 'RAW') }}
 WHERE

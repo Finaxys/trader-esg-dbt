@@ -2,7 +2,7 @@ WITH OB_HOLDING AS (
     SELECT
       a.NAME as agentname, 
       LEFT(a.OBNAME, 12) as orderbook, 
-      a.INVESTS * a.LASTFIXESPRICE as ob_holding
+      a.INVESTS * a.LASTFIXEDPRICE as ob_holding
     FROM {{ref('BRONZE_TABLE_AGENT')}} a
     QUALIFY ROW_NUMBER() OVER (PARTITION BY agentname, orderbook ORDER BY  a.TIMESTAMP desc) = 1)
 , HOLDING AS (

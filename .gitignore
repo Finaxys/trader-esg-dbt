@@ -1,4 +1,6 @@
 target/*
 logs/*
+.idea/*
+.DS_STORE
 .user.yml
 profiles.yml

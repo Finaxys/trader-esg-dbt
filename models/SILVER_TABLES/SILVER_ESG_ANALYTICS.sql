@@ -1,12 +1,13 @@
 WITH OB_HOLDING AS (
     SELECT
-        timestamp,
+        a.timestamp,
         a.NAME as agentname,
         LEFT(a.OBNAME, 12) as orderbook,
         a.invests,
-        a.LASTFIXEDPRICE,
-        a.INVESTS * a.LASTFIXEDPRICE as ob_holding
+        d.LASTPRICEOFDAY as LASTFIXEDPRICE,
+        a.INVESTS * d.LASTPRICEOFDAY as ob_holding
     FROM {{ref('BRONZE_TABLE_AGENT')}} a
+    INNER JOIN {{ref('BRONZE_TABLE_DAY')}} d where to_date(a.timestamp) = to_date(d.timestamp) and a.obname = d.obname
     QUALIFY ROW_NUMBER() OVER (PARTITION BY agentname, orderbook ORDER BY  a.TIMESTAMP desc) = 1)
 , HOLDING AS (
     SELECT AGENTNAME,
